@@ -1,7 +1,7 @@
 FROM ghcr.io/kumanoryo/debian-fish:bullseye
 #
 # set env
-ENV GOLANG_VERSION=1.17.12
+ENV GOLANG_VERSION=1.17.13
 ENV PATH /usr/local/go/bin:$PATH
 
 #
@@ -47,8 +47,8 @@ RUN go install github.com/haya14busa/goplay/cmd/goplay@latest
 RUN go install github.com/go-delve/delve/cmd/dlv@latest
 #
 # install golangci-lint
-#RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
+#RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 #
 # install gopls
 RUN go install golang.org/x/tools/gopls@latest
